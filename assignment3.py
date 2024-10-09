@@ -22,3 +22,31 @@ rate: 5%
 10 years
 final balance: 1320.68
 """
+
+def main():
+    while True:
+        try:
+            a = float((input("Gimme annual investment $: ")))
+            r = float((input("Gimme interest rate %: ")))
+            t = int((input("Enter how many years: ")))
+
+            #dictionary mapping cuz fancy and no if-else-if-else-if-else 🤓
+            money = 0
+
+            while t != 0:
+                money += a
+                i = money * (r / 100)
+                money += i
+
+                print(f"Year {t}: Balance = ${money:.2f} 💵🤑")
+                t-= 1
+            
+            print(f"\n\n💹💲🤑💸🤑💲🤓\nAfter {t} years with a {r}%, you get:\n${money:.2f}\n💹💲🤑💸🤑💲🤓")
+            break
+        
+        except Exception as e:
+            print("Bad input 🙄 duh", e)
+    
+
+if __name__ == '__main__':
+    main()

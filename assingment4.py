@@ -22,3 +22,32 @@ How many months will it take him to pay off the car.  How much interest has he p
 He will have paid 21711.60 in interest
 """
 
+def main():
+    while True:
+        try:
+            a = float((input("How much money you owe? $: ")))
+            r = float((input("Gimme interest rate %: ")))
+            m = float((input("How much you can pay per month $: ")))
+
+            months = 0
+            remaining_balance = a
+            total_paid = 0
+
+            while remaining_balance > 0:
+                interest = remaining_balance * (r / 100)
+
+                total_paid += interest
+
+                remaining_balance += interest - m   
+
+                months += 1
+
+            print(f"It'll take you {months} months or {round(months / 12, 2)} years to repay the debt 🗿\nAnd you've paid this much interest: ${round(total_paid, 2)}\n😓😓😓")
+            break
+        
+        except Exception as e:
+            print("Bad input 🙄 duh", e)
+    
+
+if __name__ == '__main__':
+    main()
